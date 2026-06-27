@@ -56,7 +56,7 @@ export default function Stepper({
   return (
     <div className="flex w-full min-h-full flex-1 flex-col items-stretch justify-center" {...rest}>
       <div className={`mx-auto w-full max-w-full rounded-[2rem] border border-edge bg-card shadow-[0_20px_25px_-5px_rgba(0,0,0,0.06),0_10px_10px_-5px_rgba(0,0,0,0.03)] ${stepCircleContainerClassName}`}>
-        <div className={`flex w-full items-center justify-between p-8 gap-0 ${stepContainerClassName}`}>
+        <div className={`flex w-full items-center justify-between p-5 sm:p-8 gap-0 ${stepContainerClassName}`}>
           {stepsArray.map((_, index) => {
             const stepNumber = index + 1;
             const isNotLastStep = index < totalSteps - 1;
@@ -99,7 +99,7 @@ export default function Stepper({
         </StepContentWrapper>
 
         {!isCompleted && (
-          <div className={`px-8 pb-8 ${footerClassName}`}>
+          <div className={`px-5 sm:px-8 pb-5 sm:pb-8 ${footerClassName}`}>
             <div className={`mt-8 flex ${currentStep !== 1 ? 'justify-between' : 'justify-end'}`}>
               {currentStep !== 1 && (
                 <button
@@ -181,7 +181,7 @@ const stepVariants = {
 };
 
 export function Step({ children }) {
-  return <div className="px-8">{children}</div>;
+  return <div className="px-5 sm:px-8">{children}</div>;
 }
 
 function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }) {

@@ -20,14 +20,14 @@ function QuestionCard({ question, intention, answer, index }) {
     <div className={`bg-surface rounded-2xl border transition-colors ${open ? 'border-accent/40 shadow-sm' : 'border-edge hover:border-accent/30'}`}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-start justify-between gap-4 p-6 bg-transparent border-none cursor-pointer text-left group"
+        className="w-full flex items-start justify-between gap-3 sm:gap-4 p-4 sm:p-6 bg-transparent border-none cursor-pointer text-left group"
         aria-expanded={open}
       >
         <div className="flex items-start gap-4 flex-1">
           <div className={`w-8 h-8 rounded-full border shadow-sm flex items-center justify-center font-bold text-[14px] shrink-0 mt-0.5 transition-colors ${open ? 'bg-accent/10 border-accent/20 text-accent' : 'bg-card border-edge text-muted group-hover:border-accent/50 group-hover:text-accent'}`}>
             {index}
           </div>
-          <h4 className={`text-[17px] font-bold leading-snug transition-colors ${open ? 'text-accent' : 'text-heading group-hover:text-accent'}`}>
+          <h4 className={`text-[15px] sm:text-[17px] font-bold leading-snug transition-colors ${open ? 'text-accent' : 'text-heading group-hover:text-accent'}`}>
             {question}
           </h4>
         </div>
@@ -40,7 +40,7 @@ function QuestionCard({ question, intention, answer, index }) {
 
       <div className="grid transition-all duration-300 w-full" style={{ gridTemplateRows: open ? '1fr' : '0fr' }}>
         <div className="overflow-hidden">
-          <div className="flex flex-col gap-4 px-6 pb-6 pt-2">
+          <div className="flex flex-col gap-4 px-4 sm:px-6 pb-4 sm:pb-6 pt-2">
             <div className="bg-card rounded-xl p-4 border border-edge/50">
               <p className="text-[11px] font-bold text-muted uppercase tracking-[0.1em] mb-2">The Hidden Intention</p>
               <p className="text-[14px] text-body leading-relaxed">{intention}</p>
@@ -235,7 +235,7 @@ export default function ReportPage() {
                     {skillGaps.map((gap, i) => {
                       const sev = severityMap[gap.severity] || severityMap.low;
                       return (
-                        <div key={i} className="flex items-center gap-6 p-6 border-b border-edge last:border-b-0 hover:bg-surface/50 transition-colors">
+                        <div key={i} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 p-4 sm:p-6 border-b border-edge last:border-b-0 hover:bg-surface/50 transition-colors">
                           <div className="w-[120px] shrink-0">
                             <span className={`text-[11px] font-bold uppercase tracking-wider ${sev.text}`}>
                               {sev.label}
@@ -312,8 +312,8 @@ export default function ReportPage() {
                         {day.day}
                       </div>
                       
-                      <div className="bg-card border border-edge rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <h4 className="text-[18px] font-bold text-heading mb-4 leading-snug">{day.focus}</h4>
+                      <div className="bg-card border border-edge rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <h4 className="text-[16px] sm:text-[18px] font-bold text-heading mb-4 leading-snug">{day.focus}</h4>
                         <ul className="flex flex-col gap-3 list-none m-0 p-0">
                           {day.tasks?.map((task, j) => (
                             <li key={j} className="text-[14px] text-body flex items-start gap-3 bg-surface/50 p-3 rounded-xl border border-edge/50">

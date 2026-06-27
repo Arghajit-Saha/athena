@@ -15,7 +15,7 @@ function DashboardIllustration({ scrollY }) {
 
   return (
     <div
-      className="relative w-full h-[400px] flex items-center justify-center perspective-[1000px] transition-transform duration-75 ease-linear"
+      className="relative w-full h-[400px] flex items-center justify-center perspective-[1000px] transition-transform duration-75 ease-linear max-sm:scale-75 sm:max-md:scale-[0.85] max-md:-ml-4 max-sm:-ml-8"
       style={{ transform: `translateY(${parallaxY}px)` }}
     >
       <div
@@ -105,25 +105,26 @@ export default function DashboardPage() {
 
   return (
     <div className="w-full">
-      <section className="relative pt-24 pb-28 max-md:pt-16 max-md:pb-20 overflow-hidden" id="hero-section">
+      <section className="relative pt-24 pb-28 max-md:pt-8 max-md:pb-10 overflow-hidden" id="hero-section">
         <div className="w-full mx-auto px-8 lg:px-16 2xl:px-32 max-md:px-5 relative z-10">
           <div className="grid grid-cols-12 gap-12 items-center">
 
-            <div className="col-span-6 max-lg:col-span-12 max-w-[720px] animate-fade-up">
-              <h1 className="font-display text-[clamp(3.5rem,6.5vw,5.5rem)] text-heading leading-[0.95] tracking-[-0.02em] mb-6" style={{ fontWeight: 700 }}>
+            <div className="col-span-6 max-lg:col-span-12 max-w-[calc(100vw-2.5rem)] sm:max-w-[720px] min-w-0 animate-fade-up">
+              <h1 className="font-display text-[clamp(3rem,7vw,5.5rem)] text-heading leading-[1.05] tracking-[-0.02em] mb-6 max-md:mb-4" style={{ fontWeight: 700 }}>
                 Unlock your <br />
                 <RotatingText
                   texts={['career potential.', 'dream job.', 'next chapter.']}
                   mainClassName="text-accent py-2"
+                  splitLevelClassName="flex flex-wrap justify-start"
                   staggerDuration={0.02}
                   staggerFrom="last"
                   rotationInterval={3500}
                 />
               </h1>
 
-              <p className="text-[clamp(1.05rem,1.8vw,1.25rem)] text-body leading-relaxed max-w-[540px] mb-10">
+              <h2 className="text-[clamp(1.05rem,1.8vw,1.25rem)] text-body leading-relaxed max-sm:max-w-full sm:w-[80vw] md:w-[50vw] mb-10 max-md:mb-6 whitespace-normal break-words">
                 Welcome back, <strong>{user?.firstName}</strong>. Upload your resume and a job description to get a match score, interview prep, skill gap analysis, and a personalized action plan.
-              </p>
+              </h2>
 
               <div className="flex items-center gap-4 flex-wrap">
                 <Link
@@ -141,7 +142,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="col-span-6 max-lg:col-span-12 max-lg:mt-12">
+            <div className="col-span-6 max-lg:col-span-12 max-lg:mt-12 max-md:hidden">
               <DashboardIllustration scrollY={scrollY} />
             </div>
 
@@ -149,14 +150,14 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      <section className="py-24 max-md:py-16 px-8 lg:px-16 2xl:px-32 max-md:px-5 bg-card/30 relative overflow-hidden" id="how-it-works">
-        <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
+      <section className="py-24 max-md:py-10 px-8 lg:px-16 2xl:px-32 max-md:px-5 bg-card/30 relative overflow-hidden" id="how-it-works">
+        <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24 max-md:gap-10 relative z-10">
 
           <div className="w-full lg:w-2/5 animate-fade-up">
-            <h2 className="font-display text-[clamp(2.5rem,4vw,3.8rem)] text-heading leading-[1.1] tracking-[-0.02em] mb-5" style={{ fontWeight: 600 }}>
+            <h2 className="font-display text-[clamp(2.5rem,5vw,3.8rem)] text-heading leading-[1.1] tracking-[-0.02em] mb-5" style={{ fontWeight: 600 }}>
               Three steps to clarity.
             </h2>
-            <p className="text-[18px] text-body leading-relaxed mb-10">
+            <p className="text-[18px] text-body leading-relaxed mb-10 max-md:mb-5">
               We built our engine to do the heavy lifting, allowing you to focus purely on your preparation.
             </p>
           </div>
@@ -169,12 +170,12 @@ export default function DashboardPage() {
               </svg>
             </div>
 
-            <div className="flex flex-col gap-16 max-md:gap-12 relative z-10 w-full">
+            <div className="flex flex-col gap-16 max-md:gap-8 relative z-10 w-full">
               {steps.map((s, i) => (
                 <div key={s.num} className="flex gap-10 max-md:gap-6 items-center animate-fade-up" style={{ animationDelay: `${0.2 + i * 0.2}s` }}>
                   <div className="w-20 h-20 max-md:w-14 max-md:h-14 bg-surface rounded-full shadow-lg flex items-center justify-center shrink-0 relative group overflow-hidden border border-edge">
                     <svg className="absolute inset-0 w-full h-full -rotate-90">
-                      <circle cx="50%" cy="50%" r="46%" fill="none" stroke="var(--color-accent)" strokeWidth="4" strokeDasharray="280" strokeDashoffset="280" className="animate-ring-fill" style={{ animationDelay: `${0.6 + i * 0.3}s` }} />
+                      <circle cx="50%" cy="50%" r="46%" fill="none" stroke="var(--color-accent)" strokeWidth="4" strokeDasharray="100" strokeDashoffset="100" pathLength="100" className="animate-ring-fill" style={{ animationDelay: `${0.6 + i * 0.3}s` }} />
                     </svg>
                     <span className="font-display text-[20px] max-md:text-[16px] font-bold text-heading relative z-10">{s.num}</span>
                   </div>
@@ -194,8 +195,8 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      <section className="py-32 max-md:py-20 px-8 lg:px-16 2xl:px-32 max-md:px-5" id="features-section">
-        <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+      <section className="py-32 max-md:py-12 px-8 lg:px-16 2xl:px-32 max-md:px-5" id="features-section">
+        <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-20 max-md:gap-10">
 
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <div className="grid grid-cols-12 gap-4 max-md:grid-cols-1">
@@ -338,7 +339,7 @@ export default function DashboardPage() {
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2 animate-fade-up lg:pl-12">
             <p className="text-[13px] font-bold text-accent uppercase tracking-[0.15em] mb-4">What you actually get</p>
-            <h2 className="font-display text-[clamp(2.5rem,4vw,3.8rem)] text-heading leading-[1.05] tracking-[-0.03em] mb-5" style={{ fontWeight: 700 }}>
+            <h2 className="font-display text-[clamp(2.5rem,5vw,3.8rem)] text-heading leading-[1.05] tracking-[-0.03em] mb-5" style={{ fontWeight: 700 }}>
               Not another vague<br />score. Real answers.
             </h2>
             <p className="text-[17px] text-body leading-[1.7]">

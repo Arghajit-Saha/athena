@@ -94,7 +94,7 @@ export default function UploadPage() {
     loading;
 
   return (
-    <div className="w-full flex-1 flex flex-col items-center pt-12 pb-24 max-md:pt-8 max-md:pb-16 px-8 lg:px-16 2xl:px-32 max-md:px-5 relative overflow-hidden">
+    <div className="w-full flex-1 flex flex-col items-center pt-12 pb-24 max-md:pt-4 max-md:pb-8 px-8 lg:px-16 2xl:px-32 max-md:px-5 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute w-[700px] h-[700px] rounded-full bg-accent/4 top-[-250px] left-1/2 -translate-x-1/2 blur-[150px]" />
         <div className="absolute w-[400px] h-[400px] rounded-full bg-mint/5 bottom-[-100px] right-[-100px] blur-[120px]" />
@@ -106,11 +106,11 @@ export default function UploadPage() {
         </div>
       )}
 
-      <div className="w-full max-w-[1100px] relative z-10 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-16 mt-4 lg:mt-12">
+      <div className="w-full max-w-[1100px] relative z-10 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-16 max-md:gap-6 mt-4 max-md:mt-2 lg:mt-12">
 
-        <div className="mb-4 lg:mb-0 text-center lg:text-left animate-fade-up flex-1 lg:pt-16">
+        <div className="mb-4 max-md:mb-2 lg:mb-0 text-center lg:text-left animate-fade-up flex-1 lg:pt-16">
           <p className="text-[13px] font-bold text-accent uppercase tracking-[0.15em] mb-3">Analysis workspace</p>
-          <h1 className="font-display text-[clamp(2.5rem,4vw,4rem)] text-heading leading-[1.05] tracking-[-0.03em] mb-5" style={{ fontWeight: 700 }}>
+          <h1 className="font-display text-[clamp(2.5rem,4vw,4rem)] text-heading leading-[1.05] tracking-[-0.03em] mb-5 max-md:mb-3" style={{ fontWeight: 700 }}>
             Drop your resume.<br />We'll do the rest.
           </h1>
           <p className="text-[16px] text-body leading-relaxed max-w-[440px] mx-auto lg:mx-0">
@@ -144,7 +144,7 @@ export default function UploadPage() {
                   onDragOver={handleDrag}
                   onDrop={handleDrop}
                   onClick={() => fileInputRef.current?.click()}
-                  className={`relative w-full rounded-2xl p-12 max-md:p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-500 group min-h-[260px] overflow-hidden ${
+                  className={`relative w-full rounded-2xl p-12 max-md:p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-500 group min-h-[260px] max-md:min-h-[200px] overflow-hidden ${
                     dragActive
                       ? 'bg-accent/8 border-2 border-accent scale-[1.01] shadow-xl shadow-accent/10'
                       : 'bg-surface border-2 border-dashed border-edge hover:border-accent/40 hover:shadow-lg'
@@ -228,7 +228,7 @@ export default function UploadPage() {
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value.slice(0, 5000))}
                   placeholder="Paste the full job posting — title, requirements, responsibilities, the works..."
-                  className="w-full py-4 px-5 text-[14px] font-sans text-heading bg-input border border-edge rounded-2xl outline-none resize-none h-[220px] transition-all duration-200 placeholder:text-muted hover:border-edge-mid focus:border-accent focus:bg-surface focus:shadow-[0_0_0_3px_var(--color-accent-ring)]"
+                  className="w-full py-4 px-5 text-[14px] font-sans text-heading bg-input border border-edge rounded-2xl outline-none resize-none h-[220px] max-md:h-[160px] transition-all duration-200 placeholder:text-muted hover:border-edge-mid focus:border-accent focus:bg-surface focus:shadow-[0_0_0_3px_var(--color-accent-ring)]"
                 />
               </div>
             </div>
@@ -254,7 +254,7 @@ export default function UploadPage() {
                   value={selfDescription}
                   onChange={(e) => setSelfDescription(e.target.value.slice(0, 2000))}
                   placeholder="Career gaps, switching industries, specific goals — anything the AI should factor in."
-                  className="w-full py-4 px-5 text-[14px] font-sans text-heading bg-input border border-edge rounded-2xl outline-none resize-none h-[140px] transition-all duration-200 placeholder:text-muted hover:border-edge-mid focus:border-accent focus:bg-surface focus:shadow-[0_0_0_3px_var(--color-accent-ring)]"
+                  className="w-full py-4 px-5 text-[14px] font-sans text-heading bg-input border border-edge rounded-2xl outline-none resize-none h-[140px] max-md:h-[120px] transition-all duration-200 placeholder:text-muted hover:border-edge-mid focus:border-accent focus:bg-surface focus:shadow-[0_0_0_3px_var(--color-accent-ring)]"
                 />
               </div>
 
